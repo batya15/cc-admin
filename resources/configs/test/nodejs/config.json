@@ -1,0 +1,22 @@
+{
+  "name": "test version",
+  "db" : {
+    "db_host": "10.0.3.72",
+    "db_port": "3306",
+    "db_user": "user",
+    "db_pass": "nLk314l66QiF",
+    "db_name": "cc"
+  },
+  "salt": "secret",
+  "mailer" : {
+    "loginGmail": "devel.cc@gmail.com",
+    "passwordGmail" : "vg6llxeK41IiDVH2"
+  },
+  "contentPath": "d:\\content\\",
+  "contentUrl": "/content/",
+  "blocked": {
+    "time": 1200000,
+    "attempt": 10
+  },
+  "sidTime": 172800000
+}

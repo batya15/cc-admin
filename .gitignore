@@ -1,0 +1,9 @@
+.idea
+src/static/bower_components
+src/static/vendor
+build
+node_modules
+release
+temp
+src/nodejs/node_modules
+src/nodejs/config.json
