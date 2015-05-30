@@ -1,0 +1,38 @@
+.v-subMenu {
+  border-bottom: 1px solid #edf2f1;
+
+  .subMenu {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+
+  .caption {
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Roboto", sans-serif;
+    color: #444;
+    font-size: 14px;
+  }
+
+  .icon {
+    font-size: 8px;
+    margin: 0 20px 0 15px;
+    vertical-align: middle;
+    transform: rotateZ(0deg);
+    transition: 0.3s ;
+  }
+
+  &.open {
+      .icon {
+        transform: rotateZ(90deg);
+      }
+  }
+
+}

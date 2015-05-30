@@ -180,6 +180,9 @@ function registerWatchers() {
 //Минификация css
 function cssMinConcat() {
     return gulp.src([config.path.build + '/**/*.css', "!**/test/**"], {base: 'build'})
+        .pipe(order([
+            "**/vendor/**"
+        ]))
         .pipe(concat('styles.css'))
         .pipe(minifyCSS({noAdvanced: 1}))
         .pipe(gulp.dest(config.path.release));

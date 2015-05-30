@@ -1,0 +1,18 @@
+.shadow-z-1
+    .message.alert.alert-danger.text-center.alert-dismissible(role="alert")
+        button.close(type="button", data-dismiss="alert", aria-label="Close")
+            span(aria-hidden="true")!= '&times;'
+        strong Неверный логин или пароль
+        p У вас осталось 2 попытки
+    .text-center
+        h4 Вход с систему
+    form
+        .form-group
+            label(for='login') Логин
+            input#login.form-control(type='text', autofocus, placeholder="Введите логин")
+        .form-group
+            label(for='password') Пароль
+            input#password.form-control(type='password', placeholder="Введите пароль")
+        .text-center.submitButton
+            button#submit.btn.btn-lg.btn-success.ladda-button(data-style="zoom-in", disabled) Войти
+                i.mdi-content-send.right

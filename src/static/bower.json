@@ -1,8 +1,8 @@
 {
-  "name": "bElements admin",
+  "name": "cc admin",
   "version": "1.0.0",
   "authors": [
-    "'Batyr <batya.char@gmail.com>"
+    "Batyr <batya.char@gmail.com>"
   ],
   "description": "Cold Control admin",
   "license": "MIT",
@@ -17,10 +17,15 @@
     "jquery": "~2.1.1",
     "requirejs": "~2.1.15",
     "backbone": "~1.1.2",
+    "socket.io-client": "~1.2.1",
+    "jquery.cookie": "~1.4.1",
     "require-css": "~0.1.8",
     "jade": "~1.8.1",
     "normalize.css": "~3.0.2",
-    "socket.io-client": "~1.3.5"
+    "bootstrap": "3.3.2",
+    "ladda-bootstrap": "~0.1.0",
+    "svg-loaders": "~1.0.2",
+    "alertify.js": "~0.3.11"
   },
   "overrides": {
     "socket.io-client": {
@@ -28,6 +33,26 @@
     },
     "jade": {
       "main": "runtime.js"
+    },
+    "svg-loaders": {
+      "main": "svg-loaders/puff.svg"
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "alertify.js" : {
+      "main": [
+        "lib/alertify.js",
+        "themes/alertify.core.css"
+      ]
     }
   }
 }

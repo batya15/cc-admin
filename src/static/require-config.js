@@ -8,7 +8,7 @@ require.config({
         'vendor/js/underscore': {
             exports: '_'
         },
-        'vendor/js/backbone': {
+        'vendor/backbone': {
             deps: [
                 'vendor/js/underscore',
                 'vendor/js/jquery'
@@ -33,7 +33,9 @@ require.config({
             'css': 'vendor/js/css', // or whatever the path to require-css is
             'jquery': 'vendor/js/jquery',
             'underscore': 'vendor/js/underscore',
-            'backbone': 'vendor/js/backbone'
+            'backbone': 'vendor/js/backbone',
+            'spin': 'vendor/js/spin',
+            'alertify': 'vendor/js/alertify'
         }
     }
 });

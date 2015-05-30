@@ -2,6 +2,7 @@
   "name": "b_startProject",
   "version": "0.0.1",
   "description": "start project",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/batya15/bElement.git"

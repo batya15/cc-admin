@@ -1,0 +1,57 @@
+@import 'styles/mixin';
+
+.v-loginForm {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 300px;
+  background-color: #fff;
+  @include animation(popupFadeIn 0.2s ease 0);
+
+  & > div {
+    height: 100%;
+    width: 100%;
+    padding: 15px 25px;
+  }
+
+  .submitButton {
+    padding: 20px;
+  }
+
+  form {
+    margin-top: 15px;
+  }
+
+  .message {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -80px;
+    display: none;
+
+    &.hide {
+      display: none;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+
+@include keyframes(popupFadeIn){
+  0%{
+    @include transform(scale(0.5));
+    opacity: 0;
+  }
+  100%{
+    @include transform(scale(1));
+    opacity: 1;
+  }
+}

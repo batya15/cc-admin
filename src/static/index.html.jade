@@ -1,14 +1,18 @@
 doctype html
-html(lang="en")
-    head
+html
+    head(lang='en')
         meta(charset='UTF-8')
-        title= 'Административная панель cc'
-        if (build == 'RELEASE')
-            script(data-main="main" src="/main.js")
-            link(rel='stylesheet', href='/styles.css')
-        else
+        if (build == 'dev')
             script(data-main="main" src="/vendor/js/require.js")
             script(src="/require-config.js")
             link(rel='stylesheet', href='/vendor/css/normalize.css')
+            link(rel='stylesheet', href='/vendor/css/bootstrap.css')
+            link(rel='stylesheet', href='/vendor/css/ladda-themeless.css')
+            link(rel='stylesheet', href='/vendor/css/alertify.core.css')
             link(rel='stylesheet', href='/styles/main.css')
-    body
+        else
+            script(data-main="main" src="/main.js")
+            link(rel='stylesheet', href='styles.css')
+        title= 'Административная панель'
+    body.load
+        img.preLoaderMain(src='/vendor/fonts/puff.svg')
