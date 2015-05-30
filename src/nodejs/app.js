@@ -1,7 +1,9 @@
 "use strict";
+var config = require("util/config");
+var log = require("util/logger")(module);
 
-require('admin/admin');
-var r = require('services/exchangeRates');
+var auth = require('endPoint/auth');
+var users = require('endPoint/users');
+var ping = require('endPoint/ping');
 
-var t = r.calc('eur', 50000);
-console.log(t);
+log.info("***START ADMINISTRATION SERVER***");
