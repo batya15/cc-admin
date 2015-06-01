@@ -37,6 +37,8 @@ define(['underscore', 'views/entity/parentView', './list.jade', './numbers/numbe
                 this.render();
                 this.collection.each(this.addItem, this);
                 this.onModel();
+
+
             },
             render: function () {
                 var nTop = new Numbers({model: this.model});
@@ -51,8 +53,6 @@ define(['underscore', 'views/entity/parentView', './list.jade', './numbers/numbe
                 this.$('[data-numbers-bottom]').append(nBottom.$el);
                 this.$('[data-column]').append(column.$el);
                 column.render();
-                nTop.render();
-                nBottom.render();
                 this.detectSearch();
             },
             onModel: function () {

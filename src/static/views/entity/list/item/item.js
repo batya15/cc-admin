@@ -32,7 +32,6 @@ define(['backbone', './item.jade', 'router', 'alertify'
                 id: this.model.get('id'),
                 rows: this.fields
             }));
-            console.log(this.fields);
         },
         active: function (m) {
             this.model.set('active', (this.model.id === m.id));

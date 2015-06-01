@@ -12,7 +12,16 @@ DaoTable.prototype = {
         db.count(this.nameTable, {}, cb);
     },
     read: function (param, cb) {
-        db.select(this.nameTable, '*', {}, function (err, res) {
+        var limit = [
+            (param.currentPage - 1) * param.countItemsOnPage,
+            param.countItemsOnPage
+        ];
+        var order = {};
+        if (param.sortBy) {
+            order[param.sortBy] = (param.sortRevert)? 'DESC' : 'ASC';
+        }
+
+        db.selectLimit(this.nameTable, '*', limit, {}, order, function (err, res) {
             cb(err, res);
         });
     },

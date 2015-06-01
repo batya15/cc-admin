@@ -49,12 +49,10 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
         })
     });
 
-    var Model = Backbone.Model.extend({ // модель текущей страницы
+    var Model = Backbone.Model.extend({ // модель текущей страницы - а именно параметры поиска по таблице
         defaults: {
-            count: 10,
-            active: 2,//todo: убрать
-            currentPage: 2,
-            countItemsInPage: 10
+            currentPage: 1,
+            countItemsOnPage: 3
         },
         namespace: 'siteSetting',
         initialize: function () {
@@ -64,19 +62,19 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
             this.set('collection', collection);
             this._sync();
             this.on('change', this._sync.bind(this));
+            this.sizeSelection = new Backbone.Model({count: 0});
         },
         _sync: function () {
-            console.log(this.attributes);
             var search = {
                 search: this.get('search'),
                 currentPage: this.get('currentPage'),
-                countItemsInPage: this.get('countItemsInPage'),
+                countItemsOnPage: this.get('countItemsOnPage'),
                 sortBy: this.get('sortBy'),
                 sortRevert: this.get('sortRevert')
             };
             this.socket.emit('getCount', search, function(err, count) {
                 if (!err) {
-                    this.set('countItems', count); // колличество элеметов в выборке
+                    this.sizeSelection.set('count', count);
                     if (count) {
                         this.get('collection').fetch(search);
                     }

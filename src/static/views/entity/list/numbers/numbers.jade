@@ -2,6 +2,6 @@
 -var activeClass
 while n < count
     -n++
-    -activeClass = (n == active)? 'active': ''
+    -activeClass = (n == currentPage)? 'active': ''
     .number(data-num=n, class=activeClass)= n
 
