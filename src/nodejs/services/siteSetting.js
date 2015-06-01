@@ -9,20 +9,19 @@ var Table = function () {
 
 Table.prototype = {
     getCount: function (param, cb) {
-        console.log(param);
-        cb(null, 5288);
+        dao.getCount(param, cb);
     },
     read: function (param, cb) {
         dao.read(param, cb);
     },
     delete: function (param, cb) {
-        dao.read(param, cb);
+        dao.delete(param, cb);
     },
     create: function (param, cb) {
-        dao.read(param, cb);
+        dao.create(param, cb);
     },
     update: function (param, cb) {
-        dao.read(param, cb);
+        dao.update(param, cb);
     }
 };
 

@@ -3,20 +3,32 @@
 var db = require("entity/db");
 var util = require('util');
 
-var SELECT_ALL_USERS = "SELECT * FROM `site_setting` LIMIT 0, 50;";
-
-var DaoTable = function () {};
+var DaoTable = function () {
+    this.nameTable = 'site_setting';
+};
 
 DaoTable.prototype = {
+    getCount: function (param, cb) {
+        db.count(this.nameTable, {}, cb);
+    },
     read: function (param, cb) {
-        var sort = '';
-        var revert = (param.sortRevert)? 'DESC' : ' ASC';
-        if (param.hasOwnProperty('sortBy')) {
-            sort = 'ORDER BY  `site_menus`.`' + param.sortBy + '` ' + revert;
-        }
-
-        db.query(SELECT_ALL_USERS, function (err, row) {
-            cb(err, row);
+        db.select(this.nameTable, '*', {}, function (err, res) {
+            cb(err, res);
+        });
+    },
+    delete: function (param, cb) {
+        db.delete(this.nameTable, param, function(err, affectedRows) {
+            cb(err, {delete:affectedRows});
+        });
+    },
+    update: function (param, cb) {
+        db.update(this.nameTable, param, function (err, affectedRows) {
+            cb(err, affectedRows);
+        });
+    },
+    create: function (param, cb) {
+        db.insert(this.nameTable, param, function(err, recordId) {
+            cb(err, recordId);
         });
     }
 };

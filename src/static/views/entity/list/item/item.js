@@ -27,6 +27,7 @@ define(['backbone', './item.jade', 'router', 'alertify'
             this.listenTo(this.model, 'remove', this.remove);
         },
         render: function () {
+            this.fields = this._parseRows();
             this.$el.html(template({
                 id: this.model.get('id'),
                 rows: this.fields

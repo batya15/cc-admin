@@ -10,13 +10,43 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
             this.socket = attr.socket;
         },
         sync: function (a, c, options) {
-            console.log('read', options);
             this.socket.emit('read', options, function(err, res) {
                 if (!err && res) {
                     this.set(res);
                 }
             }.bind(this));
-        }
+        },
+        model: Backbone.Model.extend({
+            sync: function (action, model, opt) {
+                var self = this;
+
+                function callback(err, res) {
+                    console.log(action, err, res);
+                    if (!err) {
+                        if (opt.success) {
+                            opt.success(res);
+                        }
+                        if (action === 'create') {
+                            model.set('id', res);
+                            model.id = res;
+                        }
+                        model.trigger('sync', model, res, opt);
+                    } else {
+                        self.set(self.previousAttributes());
+                        if (opt.error) {
+                            opt.error(err);
+                        }
+                    }
+                }
+
+                var data = opt.attrs || model.toJSON();
+                if(action == "delete"){
+                    this.collection.socket.emit(action, {id:this.id}, callback);
+                } else{
+                    this.collection.socket.emit(action, data, callback);
+                }
+            }
+        })
     });
 
     var Model = Backbone.Model.extend({ // модель текущей страницы

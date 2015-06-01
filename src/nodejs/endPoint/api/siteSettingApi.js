@@ -23,19 +23,15 @@ SiteSettingApi.prototype = _.extend(SiteSettingApi.prototype, {
         siteSetting.getCount(param, cb);
     },
     read: function(param, cb) {
-        console.log(param);
         siteSetting.read(param, cb);
     },
     create: function (attr, cb) {
-        console.log(attr);
         siteSetting.create(attr, cb);
     },
     update: function (attr, cb) {
-        console.log(attr);
         siteSetting.update(attr, cb);
     },
     delete: function (attr, cb) {
-        console.log(attr);
         siteSetting.delete(attr, cb);
     }
 });
