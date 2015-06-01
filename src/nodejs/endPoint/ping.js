@@ -1,10 +1,17 @@
 "use strict";
 
-var socket = require("entity/socket")('ping', true);
+var EndPoint = require('entity/endPoint'),
+    _ = require('underscore'),
+    ClientApi = require('entity/clientApi'),
+    util = require('util');
 
-socket.on('connection', function (socket) {
+var PingEndPoint = function() {
+    this.namespace = 'ping';
+    this.notAuth = true;
+    EndPoint.prototype.initialize.apply(this, arguments);
+};
 
-    socket.on('ping', function (cb) {
-        cb('pong');
-    });
-});
+PingEndPoint.prototype = new EndPoint(ClientApi);
+
+
+module.exports = new PingEndPoint();

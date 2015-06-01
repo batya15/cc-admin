@@ -4,7 +4,8 @@ define(['backbone', 'underscore', 'domain/pages', './router'],
 
     var config = {
         main: 'Основное',
-        control: 'Управление',
+        site: 'Сайт',
+        control: 'Котнроль',
         directory: 'Справочники',
         products: 'Продукция',
         content: 'Контент',

@@ -1,27 +1,14 @@
 "use strict";
 
-var socket = require("entity/socket")('auth', true),
-    auth = require("services/auth"),
-    users = require("services/users");
+var EndPoint = require('entity/endPoint'),
+    AuthApi = require('./api/authApi');
 
-socket.on('connection', function (socket) {
+var AuthEndPoint = function() {
+    this.namespace = 'auth';
+    this.notAuth = true;
+    EndPoint.prototype.initialize.apply(this, arguments);
+};
 
-    socket.on('login', function(data, cb) {
-        var ip  = socket.handshake.address;
-        auth.login(data.login, data.password, ip, cb);
-    });
+AuthEndPoint.prototype = new EndPoint(AuthApi);
 
-    socket.on('checkLogin', function(cb) {
-        var ip  = socket.handshake.address;
-        var key = (socket.request.headers.cookie)? socket.request.headers.cookie['sessionKey']: '';
-        auth.checkLoginBySID(ip, key, cb);
-    });
-
-    socket.on('logout', function(cb) {
-        var ip  = socket.handshake.address;
-        var key = (socket.request.headers.cookie)? socket.request.headers.cookie['sessionKey']: '';
-        auth.logout(ip, key, cb);
-    });
-
-
-});
+module.exports = new AuthEndPoint();

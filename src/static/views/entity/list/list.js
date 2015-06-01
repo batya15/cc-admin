@@ -31,8 +31,6 @@ define(['underscore', 'views/entity/parentView', './list.jade', './numbers/numbe
                 });
                 this.opt = opt;
 
-
-                this.collection.fetch();
                 this.listenTo(this.collection, 'add', this.addItem);
                 this.listenTo(this.model, 'change', this.onModel);
                 this.listenTo(this.model, 'change:search', this.detectSearch);
