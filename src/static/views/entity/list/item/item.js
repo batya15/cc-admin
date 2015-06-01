@@ -14,7 +14,6 @@ define(['backbone', './item.jade', 'router', 'alertify'
             class: 'v-item'
         },
         events: {
-            'click': 'select',
             'click [data-preview]': 'preview',
             'click [data-edit]': 'edit',
             'click [data-remove]': 'removeItem'
@@ -23,7 +22,6 @@ define(['backbone', './item.jade', 'router', 'alertify'
             this.opt = data.opt;
             this.fields = this._parseRows();
             this.listenTo(this.model, 'change', this.render);
-            this.listenTo(this.model.collection, 'active', this.active);
             this.listenTo(this.model, 'remove', this.remove);
         },
         render: function () {
@@ -32,12 +30,6 @@ define(['backbone', './item.jade', 'router', 'alertify'
                 id: this.model.get('id'),
                 rows: this.fields
             }));
-        },
-        active: function (m) {
-            this.model.set('active', (this.model.id === m.id));
-        },
-        select: function () {
-            this.model.collection.trigger('active', this.model);
         },
         removeItem: function () {
             var self = this;

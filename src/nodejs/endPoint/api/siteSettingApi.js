@@ -29,7 +29,12 @@ SiteSettingApi.prototype = _.extend(SiteSettingApi.prototype, {
         siteSetting.create(attr, cb);
     },
     update: function (attr, cb) {
-        siteSetting.update(attr, cb);
+        siteSetting.update(attr, function (err, result) {
+            if (!err) {
+                this.client.broadcast.emit('model', attr);
+            }
+            cb(err, result);
+        }.bind(this));
     },
     delete: function (attr, cb) {
         siteSetting.delete(attr, cb);

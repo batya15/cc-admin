@@ -8,9 +8,22 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
         namespace: 'users',
         initialize: function(models, attr) {
             this.socket = attr.socket;
+            this.socket.on('model', this.onModel.bind(this));
+        },
+        onModel: function (attr) {
+            if (this.get(attr.id)) {
+                this.set(attr, {remove: false, add:false});
+            }
         },
         sync: function (a, c, options) {
-            this.socket.emit('read', options, function(err, res) {
+            var search = {
+                search: options.search,
+                currentPage: options.currentPage,
+                countItemsOnPage: options.countItemsOnPage,
+                sortBy: options.sortBy,
+                sortRevert: options.sortRevert
+            };
+            this.socket.emit('read', search, function(err, res) {
                 if (!err && res) {
                     this.set(res);
                 }
@@ -52,7 +65,7 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
     var Model = Backbone.Model.extend({ // модель текущей страницы - а именно параметры поиска по таблице
         defaults: {
             currentPage: 1,
-            countItemsOnPage: 3
+            countItemsOnPage: 2
         },
         namespace: 'siteSetting',
         initialize: function () {
