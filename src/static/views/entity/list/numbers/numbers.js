@@ -12,6 +12,7 @@ define(['jquery', 'backbone', './numbers.jade'], function ($, Backbone, template
         initialize: function () {
             this.listenTo(this.model, 'change:currentPage', this.render);
             this.listenTo(this.model.sizeSelection, 'change', this.render);
+            this.render();
         },
         render: function () {
             this.$el.html(template({

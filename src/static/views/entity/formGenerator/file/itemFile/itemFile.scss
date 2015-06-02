@@ -1,0 +1,59 @@
+.itemFile {
+  height: 125px;
+  width: 100px;
+  position: relative;
+  margin: 2px;
+
+  .filename {
+    overflow: hidden;
+  }
+
+  .previewImg {
+    position: absolute;
+    top: -218px;
+    left: -100px;
+    padding: 5px;
+    background: white;
+    border: 1px solid #BBBBBB;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.71);
+
+    img {
+      max-width: 300px;
+      max-height: 200px;
+    }
+
+  }
+
+  .img {
+    height: 100px;
+    text-align: center;
+    overflow: hidden;
+
+    &:hover {
+      .delete {
+        opacity: 0.7;
+      }
+    }
+
+    .delete {
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      border-radius: 7px;
+      text-align: center;
+      cursor: pointer;
+      background: white;
+      right: 2px;
+      top: 2px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

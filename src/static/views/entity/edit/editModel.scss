@@ -1,0 +1,35 @@
+.wrapUserEdit {
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+
+  .editUser {
+
+    #form {
+      margin: 15px;
+    }
+
+    .title {
+      background-color: #4CAF50;
+      font-size: 16px;
+      font-weight: 300;
+      color: white;
+      padding: 10px 20px;
+    }
+    .buttons {
+      margin: 30px;
+    }
+
+    #moreControls{
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #DBDBDB;
+    }
+
+  }
+
+}

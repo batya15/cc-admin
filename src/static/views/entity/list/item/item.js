@@ -20,6 +20,7 @@ define(['backbone', './item.jade', 'router', 'alertify'
         },
         initialize: function (data) {
             this.opt = data.opt;
+            this.ns = data.ns;
             this.fields = this._parseRows();
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'remove', this.remove);
@@ -40,10 +41,10 @@ define(['backbone', './item.jade', 'router', 'alertify'
             });
         },
         edit: function () {
-            router.navigate('users/edit?id=' + this.model.id, {trigger: true});
+            router.navigate(this.ns + '/edit?id=' + this.model.id, {trigger: true});
         },
         preview: function () {
-            router.navigate('users/preview?id=' + this.model.id, {trigger: true});
+            router.navigate(this.ns + '/preview?id=' + this.model.id, {trigger: true});
         },
         _parseRows: function () {
             var opt = {};

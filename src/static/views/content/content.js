@@ -5,7 +5,6 @@ define([
     'domain/router',
     'domain/pages',
     'views/pages/siteSetting/siteSetting',
-    'views/pages/users/users',
     'views/pages/brands/brands',
     'views/pages/home/home',
     'views/pages/country/country',

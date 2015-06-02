@@ -9,6 +9,42 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
         initialize: function(models, attr) {
             this.socket = attr.socket;
             this.socket.on('model', this.onModel.bind(this));
+
+            this.scheme = {
+                'name': '',
+                'active': {
+                    type: 'checkbox'
+                },
+                'slogan': '',
+                'phone': '',
+                'openingTimes': '',
+                'keywords': {
+                    type: 'textarea'
+                },
+                'description': {
+                    type: 'textarea'
+                },
+                'yandexShare': {
+                    type: 'textarea'
+                },
+                'robots': {
+                    type: 'textarea'
+                },
+                'googleAnalytics': {
+                    type: 'textarea'
+                },
+                'yandexMetrika': {
+                    type: 'textarea'
+                },
+                'scripts': {
+                    type: 'textarea'
+                },
+                'metaTags': {
+                    type: 'textarea'
+                },
+                'email': ''
+            };
+
         },
         onModel: function (attr) {
             if (this.get(attr.id)) {
@@ -65,7 +101,7 @@ define(['backbone', 'domain/entity/socket'], function (Backbone, io) {
     var Model = Backbone.Model.extend({ // модель текущей страницы - а именно параметры поиска по таблице
         defaults: {
             currentPage: 1,
-            countItemsOnPage: 2
+            countItemsOnPage: 30
         },
         namespace: 'siteSetting',
         initialize: function () {

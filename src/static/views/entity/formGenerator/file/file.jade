@@ -1,0 +1,11 @@
+.row
+    .col-md-8
+        .form-horizontal
+            .form-group
+                label.col-sm-3.control-label= caption
+
+                .col-sm-2.text-center
+                    .btn.btn-default(data-select=true) Выбрать
+                .col-sm-7
+                    #filesList
+                    input(value= value, name= key, type='hidden')

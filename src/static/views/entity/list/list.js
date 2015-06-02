@@ -37,8 +37,6 @@ define(['underscore', 'views/entity/parentView', './list.jade', './numbers/numbe
                 this.render();
                 this.collection.each(this.addItem, this);
                 this.onModel();
-
-
             },
             render: function () {
                 var nTop = new Numbers({model: this.model});
@@ -97,7 +95,7 @@ define(['underscore', 'views/entity/parentView', './list.jade', './numbers/numbe
                 this.detectSearch();
             },
             addItem: function (m) {
-                var v = new Item({model: m, opt: this.opt});
+                var v = new Item({model: m, opt: this.opt, ns: this.page.get('namespace')});
                 this.$('[data-tableConteiner]').append(v.$el);
                 v.render();
                 this.addChild(v);
