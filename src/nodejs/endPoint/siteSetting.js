@@ -1,13 +1,13 @@
 "use strict";
 
 var EndPoint = require('entity/endPoint'),
-    SiteSettingApi = require('./api/siteSettingApi');
+    Api = require('./api/siteSettingApi');
 
 var SiteSettingEndPoint = function() {
     this.namespace = 'siteSetting';
     EndPoint.prototype.initialize.apply(this, arguments);
 };
 
-SiteSettingEndPoint.prototype = new EndPoint(SiteSettingApi);
+SiteSettingEndPoint.prototype = new EndPoint(Api);
 
 module.exports = new SiteSettingEndPoint();
