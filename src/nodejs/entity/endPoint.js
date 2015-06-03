@@ -9,8 +9,8 @@ var EndPoint = function (Client) {
 
 EndPoint.prototype = {
     initialize: function() {
-        var socket = io(this.namespace, this.notAuth);
-        socket.on('connection', this._onConnection.bind(this));
+        this.socket = io(this.namespace, this.notAuth);
+        this.socket.on('connection', this._onConnection.bind(this));
     },
     connection: function (client) {
 
