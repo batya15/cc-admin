@@ -4,14 +4,17 @@ define([
     'views/entity/parentView',
     'domain/router',
     'domain/pages',
-    'views/pages/siteSetting/siteSetting',
-    'views/pages/brands/brands',
-    'views/pages/home/home',
-    'views/pages/country/country',
-    'views/pages/products/products',
-    'views/pages/content/content',
-    'views/pages/orders/orders',
-    'views/pages/comment/comment'
+    'views/pages/siteSetting',
+    'views/pages/siteReviews',
+    'views/pages/siteAliases',
+    'views/pages/siteMenus',
+    'views/pages/brands',
+    'views/pages/home',
+    'views/pages/country',
+    'views/pages/products',
+    'views/pages/content',
+    'views/pages/orders',
+    'views/pages/comment'
 
 ], function () {
 

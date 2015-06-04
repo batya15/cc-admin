@@ -6,7 +6,7 @@ define(['domain/entity/tableModel'], function (TableModel) {
 
     return function () {
         if (!instance) {
-            instance = new TableModel({}, {namespace: 'siteSetting'});
+            instance = new TableModel({}, {namespace: 'siteMenus'});
         }
         return instance;
     };

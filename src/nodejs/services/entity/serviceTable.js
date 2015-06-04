@@ -8,6 +8,9 @@ TableService.prototype = {
     getCount: function (param, cb) {
         this.dao.getCount(param, cb);
     },
+    getScheme: function (cb) {
+        cb(null, this.scheme);
+    },
     read: function (param, cb) {
         this.dao.read(param, cb);
     },

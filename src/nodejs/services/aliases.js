@@ -6,6 +6,10 @@ var dao = require('dao/daoAliases'),
 var AliasesService = function () {
     this.namespace = 'aliases';
     this.dao = dao;
+    this.scheme = {
+        alias: '',
+        url: ''
+    };
 };
 
 AliasesService.prototype = new TableService();

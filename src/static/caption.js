@@ -13,9 +13,9 @@ define(function () {
 
     return function (key) {
         if (lang.hasOwnProperty(key)) {
-            return lang[key]
+            return lang[key];
         } else {
-            return key
+            return key;
         }
 
     };

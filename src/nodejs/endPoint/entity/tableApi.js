@@ -13,10 +13,14 @@ util.inherits(TableApi, ClientApi);
 TableApi.prototype = _.extend(TableApi.prototype, {
     events: {
         'getCount': 'getCount',
+        'getScheme': 'getScheme',
         'read': 'read',
         'create': 'create',
         'update': 'update',
         'delete': 'delete'
+    },
+    getScheme: function (cb) {
+        this.service.getScheme(cb);
     },
     getCount: function (param, cb) {
         this.service.getCount(param, cb);

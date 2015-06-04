@@ -25,7 +25,7 @@ define(['backbone', './input.jade'], function (Backbone, templete) {
     return {
         View: View,
         name: NAME
-    }
+    };
 
 
 });
