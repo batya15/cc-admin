@@ -201,7 +201,7 @@ function gzipTask() {
 }
 //Копирование файлов в релиз
 function copyStaticFileRelease() {
-    return gulp.src(config.staticRelease, {base: 'build'})
+    return gulp.src(config.staticRelease, {base: 'build/static'})
         .pipe(gulp.dest(config.path.release));
 }
 //Минимизация JS
@@ -220,6 +220,10 @@ function jsMin() {
 }
 
 
+function copyVendorFonts () {
+    return gulp.src([config.path.build + '/vendor/fonts/**/*'])
+        .pipe(gulp.dest(config.path.release + '/fonts'));
+}
 
 function concatRjs() {
     return gulp.src('temp/main.js', {baseUrl: 'temp'})
@@ -253,4 +257,5 @@ gulp.task('development', gulp.series('clean', installModulesBower, 'bower',
 
 gulp.task('default', gulp.series('development', registerWatchers));
 gulp.task('release', gulp.series('cleanHard', setBuild, 'development', installModulesNPM,
-    gulp.parallel(cssMinConcat, jsMin, htmlMin, copyStaticFileRelease), concatRjs, concatAllJs, gzipTask, copyNodejJs));
+    gulp.parallel(cssMinConcat, jsMin, htmlMin, copyStaticFileRelease), concatRjs, concatAllJs,
+    copyVendorFonts, gzipTask, copyNodejJs));
