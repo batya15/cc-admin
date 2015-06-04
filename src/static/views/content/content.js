@@ -7,6 +7,7 @@ define([
     'views/pages/siteSetting',
     'views/pages/siteReviews',
     'views/pages/siteAliases',
+    'views/pages/siteRedirect',
     'views/pages/siteMenus',
     'views/pages/brands',
     'views/pages/home',

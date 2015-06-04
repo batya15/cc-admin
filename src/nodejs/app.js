@@ -9,5 +9,6 @@ var siteAliases = require('endPoint/siteAliases');
 var siteMenus = require('endPoint/siteMenus');
 var siteReviews = require('endPoint/siteReviews');
 var siteUpdater = require('endPoint/siteUpdater');
+var siteRedirect = require('endPoint/siteRedirect');
 
 log.info("***START ADMINISTRATION SERVER***");
