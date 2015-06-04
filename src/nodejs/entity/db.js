@@ -2,7 +2,7 @@
 
 var config = require('util/config').get('db'),
     mysql = require('mysql'),
-    mysqlUtilities = require('mysql-utilities'),
+    mysqlUtilities = require('util/mysqlUtilities'),
     log = require("util/logger")(module);
 
 
