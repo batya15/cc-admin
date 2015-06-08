@@ -7,7 +7,7 @@ var DaoCBRExchangeRates = function () {
 
 };
 
-DaoCBRExchangeRates.prototype.getLastExhangeRates = function (cb) {
+DaoCBRExchangeRates.prototype.getLastExchangeRates = function (cb) {
     db.queryRow('SELECT * FROM  `_CBR_rates` ORDER BY  `id` DESC', cb);
 };
 

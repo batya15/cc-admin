@@ -1,12 +1,12 @@
 "use strict";
 
-var siteSetting = require("services/exchangeRates"),
+var service = require("services/exchangeRates"),
     TableApi = require('endPoint/entity/tableApi'),
     _ = require('underscore'),
     util = require('util');
 
 var ExchangeRatesApi = function () {
-    this.service = siteSetting;
+    this.service = service;
     ExchangeRatesApi.super_.apply(this, arguments);
 };
 

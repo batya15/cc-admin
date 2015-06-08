@@ -10,7 +10,7 @@ var dao = require('dao/daoExchangeRatesSetting'),
     cron = require('services/cron');
 
 var ExchangeRates = function () {
-    this.namespace = 'menu';
+    this.namespace = 'exchangeRates';
     this.dao = dao;
     this.scheme = {
         'active': {
@@ -39,7 +39,7 @@ ExchangeRates.prototype.getCurrentExchangeRates = function (cb) {
             log.error(err);
         }
         if (res.cbrActive) {
-            daoCBRExchangeRates.getLastExhangeRates(function (error, current) {
+            daoCBRExchangeRates.getLastExchangeRates(function (error, current) {
                 if (error) {
                     log.error(err);
                 }
@@ -66,7 +66,7 @@ ExchangeRates.prototype.updateCBTExchangeRates = function () {
         });
     }
 
-    daoCBRExchangeRates.getLastExhangeRates(function (error, current) {
+    daoCBRExchangeRates.getLastExchangeRates(function (error, current) {
         this._getCBRRates(function(err, res) {
             if (!error && err && res) {
                 setNewExchangeRates(res);
