@@ -1,47 +1,62 @@
 "use strict";
 
-var request = require('request');
-var log = require("util/logger")(module);
-var parseString = require('xml2js').parseString;
+var dao = require('dao/daoExchangeRatesSetting'),
+    TableService = require('services/entity/serviceTable'),
+    daoCBRExchangeRates = require('dao/daoCBRExchangeRates'),
+    siteUpdater = require('endPoint/siteUpdater'),
+    request = require('request'),
+    log = require("util/logger")(module),
+    parseString = require('xml2js').parseString,
+    cron = require('services/cron');
 
 var ExchangeRates = function () {
-
-    this.rates = [];
-    this.loadSetting(function () {
-
-    });
-
-    this.update(function (err, result) {
-
-    });
-
-    this._getCBRRates(function (err, result) {
-        console.log(err, result);
-    });
-
-    this.setCurrentRates();
-
-};
-
-ExchangeRates.prototype.update = function (cb) {
-
-};
-
-ExchangeRates.prototype.loadSetting = function (cb) {
-    this.setting = {
-        cbr: true,
-        allowance: 1.1,
-        rates: {
-            usd: 35.5,
-            eur: 41.2
-        }
+    this.namespace = 'menu';
+    this.dao = dao;
+    this.scheme = {
+        'active': 'checkbox',
+        'cbrActive': 'checkbox',
+        'allowance': '',
+        'ratesUSD': '',
+        'ratesEUR': ''
     };
+    cron.on('restart', this.updateCBTExchangeRates.bind(this));
+    cron.on('hour', this.updateCBTExchangeRates.bind(this));
 };
 
-/**
- * Загрузка курсов Доллара США и Евро с банка ЦБР
- * @param cb
- */
+ExchangeRates.prototype = new TableService();
+
+ExchangeRates.prototype.getLastsExchangeRates = function () {
+
+};
+
+ExchangeRates.prototype.getCurrentExchangeRates = function () {
+
+};
+
+ExchangeRates.prototype.updateCBTExchangeRates = function () {
+    var self = this;
+    function setNewExchangeRates(res) {
+        daoCBRExchangeRates.setNewExchangeRates({
+            date: res.date,
+            USD: parseFloat(res.usd.replace(",", ".")),
+            EUR: parseFloat(res.eur.replace(",", "."))
+        }, function() {
+            siteUpdater.emit(self.namespace);
+        });
+    }
+
+    daoCBRExchangeRates.getLastExhangeRates(function (error, current) {
+        this._getCBRRates(function(err, res) {
+            if (!error && err && res) {
+                setNewExchangeRates(res);
+            } else if (current.date !== res.date) {
+                setNewExchangeRates(res);
+            }
+        });
+    }.bind(this));
+
+};
+
 ExchangeRates.prototype._getCBRRates = function (cb) {
     request({
         uri: 'http://www.cbr.ru/scripts/XML_daily.asp',
@@ -91,24 +106,5 @@ ExchangeRates.prototype._getCBRRates = function (cb) {
         });
     });
 };
-
-
-ExchangeRates.prototype.setCurrentRates = function () {
-    this.rates = this.setting.rates;
-};
-
-/**
- * Перевод рублей в USD или EUR
- * @param type: 'usd' || 'eur'
- * @param rub
- * @returns {string}
- */
-ExchangeRates.prototype.calc = function (type, rub) {
-    var rates = (this.rates.hasOwnProperty(type)) ? this.rates[type] : 1,
-        value = (rub) ? rub : 1;
-
-    return (value / rates).toFixed(2);
-};
-
 
 module.exports = new ExchangeRates();
