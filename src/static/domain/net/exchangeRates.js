@@ -4,9 +4,20 @@ define(['domain/entity/tableModel'], function (TableModel) {
 
     var instance;
 
+    var Model = TableModel.extend({
+        initialize: function () {
+            TableModel.prototype.initialize.apply(this, arguments);
+        },
+        getLastsExchangeRates: function (cb) {
+            this.socket.emit('getLastsExchangeRates', function (err, res) {
+                cb(err, res);
+            });
+        }
+    });
+
     return function () {
         if (!instance) {
-            instance = new TableModel({}, {namespace: 'exchangeRates'});
+            instance = new Model({}, {namespace: 'exchangeRates'});
         }
         return instance;
     };

@@ -25,7 +25,8 @@
     "bootstrap": "3.3.2",
     "ladda-bootstrap": "~0.1.0",
     "svg-loaders": "~1.0.2",
-    "alertify.js": "~0.3.11"
+    "alertify.js": "~0.3.11",
+    "Chart.js": "~1.0.2"
   },
   "overrides": {
     "socket.io-client": {
@@ -48,7 +49,7 @@
         "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
     },
-    "alertify.js" : {
+    "alertify.js": {
       "main": [
         "lib/alertify.js",
         "themes/alertify.core.css"

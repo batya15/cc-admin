@@ -5,6 +5,7 @@ var _ = require('underscore'),
     util = require('util');
 
 var TableApi = function () {
+    this.events = _.extend({}, this.events || {}, TableApi.prototype.events);
     TableApi.super_.apply(this, arguments);
 };
 

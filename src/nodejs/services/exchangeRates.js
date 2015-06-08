@@ -19,14 +19,14 @@ var ExchangeRates = function () {
         'ratesUSD': '',
         'ratesEUR': ''
     };
-    cron.on('restart', this.updateCBTExchangeRates.bind(this));
+    this.updateCBTExchangeRates();
     cron.on('hour', this.updateCBTExchangeRates.bind(this));
 };
 
 ExchangeRates.prototype = new TableService();
 
-ExchangeRates.prototype.getLastsExchangeRates = function () {
-
+ExchangeRates.prototype.getLastsExchangeRates = function (cb) {
+    daoCBRExchangeRates.getLastsExchangeRates(cb);
 };
 
 ExchangeRates.prototype.getCurrentExchangeRates = function () {
@@ -49,7 +49,7 @@ ExchangeRates.prototype.updateCBTExchangeRates = function () {
         this._getCBRRates(function(err, res) {
             if (!error && err && res) {
                 setNewExchangeRates(res);
-            } else if (current.date !== res.date) {
+            } else if (res && current.date !== res.date) {
                 setNewExchangeRates(res);
             }
         });
