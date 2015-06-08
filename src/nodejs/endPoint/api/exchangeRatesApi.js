@@ -14,10 +14,14 @@ util.inherits(ExchangeRatesApi, TableApi);
 
 ExchangeRatesApi.prototype = _.extend(ExchangeRatesApi.prototype, {
     events: {
-        'getLastsExchangeRates': 'getLastsExchangeRates'
+        'getLastsExchangeRates': 'getLastsExchangeRates',
+        'getCurrentExchangeRates': 'getCurrentExchangeRates'
     },
     getLastsExchangeRates: function (cb) {
         this.service.getLastsExchangeRates(cb);
+    },
+    getCurrentExchangeRates: function (cb) {
+        this.service.getCurrentExchangeRates(cb);
     }
 });
 

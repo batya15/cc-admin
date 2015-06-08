@@ -1,0 +1,30 @@
+.v-currentExchangeRates {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  margin-bottom: 27px;
+
+  .caption {
+    background-color: #4CAF50;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    padding: 10px 20px;
+  }
+
+  .inner {
+    padding: 5px;
+  }
+
+  .btn {
+    float: right;
+    margin: 0 10px;
+  }
+
+  strong {
+    margin-left: 10px;
+  }
+
+
+}

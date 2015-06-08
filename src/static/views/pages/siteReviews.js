@@ -5,8 +5,8 @@ define(['domain/pages', 'views/entity/page', 'domain/net/siteReviews'], function
     var namespace = 'siteReviews';
 
     var fields =  {
-        'name:5:b': 'name',
-        'contact:5': 'contact'
+        'ФИО:5:b': 'name',
+        'Контакт:5': 'contact'
     };
 
     return page.add({

@@ -5,9 +5,9 @@ define(['domain/pages', 'views/entity/page', 'domain/net/siteSetting'], function
     var namespace = 'sitesetting';
 
     var fields =  {
-        'name:4:b': 'name',
-        'openingTimes:4': 'openingTimes',
-        'active:2': 'active'
+        'Название:4:b': 'name',
+        'Время работы:4': 'openingTimes',
+        'Вкл/Выкл:2': 'active'
     };
 
     return page.add({

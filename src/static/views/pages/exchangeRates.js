@@ -1,7 +1,8 @@
 "use strict";
 
-define(['domain/pages', 'views/entity/page', 'domain/net/exchangeRates', 'views/chartExchangeRates/exchangeRates'],
-    function (page, ViewPage, model, Chart) {
+define(['domain/pages', 'views/entity/page', 'domain/net/exchangeRates', 'views/chartExchangeRates/exchangeRates',
+        'views/currentExchangeRates/currentExchangeRates'],
+    function (page, ViewPage, model, Chart, CurrentExchangeRates) {
 
     var namespace = 'exchangeRates';
 
@@ -10,16 +11,21 @@ define(['domain/pages', 'views/entity/page', 'domain/net/exchangeRates', 'views/
             var v = new Chart();
             this.addChild(v);
             this.$el.append(v.$el);
+
+            v = new CurrentExchangeRates();
+            this.addChild(v);
+            this.$el.append(v.$el);
+
             ViewPage.prototype.list.apply(this, arguments);
         }
     });
 
     var fields =  {
-        'active:2:b': 'active',
-        'cbrActive:2': 'cbrActive',
-        'allowance:2': 'allowance',
-        'ratesUSD:2': 'ratesUSD',
-        'ratesEUR:2': 'ratesEUR'
+        'Активная:2:b': 'active',
+        'Из ЦБР:2': 'cbrActive',
+        'Коэф.:2': 'allowance',
+        'USD:2': 'ratesUSD',
+        'EUR:2': 'ratesEUR'
 
     };
 

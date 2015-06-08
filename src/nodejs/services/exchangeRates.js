@@ -13,8 +13,12 @@ var ExchangeRates = function () {
     this.namespace = 'menu';
     this.dao = dao;
     this.scheme = {
-        'active': 'checkbox',
-        'cbrActive': 'checkbox',
+        'active': {
+            type: 'checkbox'
+        },
+        'cbrActive': {
+            type: 'checkbox'
+        },
         'allowance': '',
         'ratesUSD': '',
         'ratesEUR': ''
@@ -29,8 +33,25 @@ ExchangeRates.prototype.getLastsExchangeRates = function (cb) {
     daoCBRExchangeRates.getLastsExchangeRates(cb);
 };
 
-ExchangeRates.prototype.getCurrentExchangeRates = function () {
-
+ExchangeRates.prototype.getCurrentExchangeRates = function (cb) {
+    dao.getCurrentSetting(function (err, res) {
+        if (err) {
+            log.error(err);
+        }
+        if (res.cbrActive) {
+            daoCBRExchangeRates.getLastExhangeRates(function (error, current) {
+                if (error) {
+                    log.error(err);
+                }
+                cb(err, {
+                    USD: (current.USD * res.allowance).toFixed(4),
+                    EUR: (current.EUR * res.allowance).toFixed(4)
+                });
+            });
+        } else {
+            cb(err, {USD: res.ratesUSD, EUR: res.ratesEUR});
+        }
+    });
 };
 
 ExchangeRates.prototype.updateCBTExchangeRates = function () {

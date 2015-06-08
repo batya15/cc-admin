@@ -5,8 +5,8 @@ define(['domain/pages', 'views/entity/page', 'domain/net/siteRedirect'], functio
     var namespace = 'siteRedirect';
 
     var fields =  {
-        'source:5:b': 'source',
-        'destination:5': 'destination'
+        'Откуда:5:b': 'source',
+        'Куда:5': 'destination'
     };
 
     return page.add({
