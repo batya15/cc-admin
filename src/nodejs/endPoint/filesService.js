@@ -1,7 +1,7 @@
 "use strict";
 
 var EndPoint = require('entity/endPoint'),
-    Api = require('./api/FilesServiceApi');
+    Api = require('./api/filesServiceApi');
 
 var FilesServiceEndPoint = function() {
     this.namespace = 'filesService';
