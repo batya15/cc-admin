@@ -5,6 +5,7 @@ var fs = require('fs'),
     dao = require('dao/daoFilesService'),
     log = require("util/logger")(module),
     staticPath = require('util/config').get('staticPath'),
+    staticUrl = require('util/config').get('staticUrl'),
     siteUpdater = require('endPoint/siteUpdater');
 
 var FileService = function () {
@@ -48,7 +49,10 @@ FileService.prototype = {
         });
     },
     getFilenameById: function(id, cb) {
-        dao.getFileNameById(id, cb);
+        dao.getFileNameById(id, function(err, filename) {
+            var name = staticUrl + filename;
+            cb(err, name);
+        });
     },
     _newFile: function (id, cb) {
         dao.getFileById(id, function (err, row) {

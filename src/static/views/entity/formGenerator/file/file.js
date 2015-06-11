@@ -57,7 +57,7 @@ define([
             this.trigger('change');
             service.getFilenameById(this.value, function (name) {
                 var img = new Image();
-                img.src = '/staticFiles/' + name;
+                img.src = name;
                 this.$('#file').append(img);
             }.bind(this));
         },
