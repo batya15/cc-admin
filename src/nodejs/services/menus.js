@@ -15,9 +15,11 @@ var MenusService = function () {
         'description': {
             type: 'textarea'
         },
-        'image': '',
         'cssClass': '',
-        'hideUrl': ''
+        'hideUrl': '',
+        'img': {
+            type: 'file'
+        }
     };
 };
 

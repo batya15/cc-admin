@@ -12,12 +12,14 @@ var ReviewsService = function () {
         'text': {
             type: 'textarea'
         },
-        'avatar': '',
         'time': '',
         'approved': {
             type: 'checkbox'
         },
-        'sex': ''
+        'sex': '',
+        'img': {
+            type: 'file'
+        }
     };
 };
 

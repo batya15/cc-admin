@@ -11,5 +11,9 @@ require('endPoint/siteReviews');
 require('endPoint/siteUpdater');
 require('endPoint/siteRedirect');
 require('endPoint/exchangeRates');
+require('endPoint/filesService');
+var filesService = require('services/filesService');
+
+filesService.init();
 
 log.info("***START ADMINISTRATION SERVER***");

@@ -7,3 +7,5 @@ release
 temp
 src/nodejs/node_modules
 src/nodejs/config.json
+src/nodejs/temp
+staticFiles

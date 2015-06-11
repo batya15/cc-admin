@@ -1,11 +1,18 @@
 .row
     .col-md-8
         .form-horizontal
+            input#value(value= value, name= key, type='hidden')
             .form-group
                 label.col-sm-3.control-label= caption
+                .col-sm-3.text-center
+                    .btn.btn-default(data-select) Выбрать из галлереи
+                .col-sm-3.text-center
+                    .btn.btn-default(data-fileload) Загрузить другую
+                .col-sm-3.text-center
+                    .btn.btn-danger(data-remove) Удалить картинку
+            .form-group
+                .col-sm-3
+                    input#userFile(value= value, name= 'userFile', type='file', style="visibility:hidden;")
+                .col-sm-9#file
 
-                .col-sm-2.text-center
-                    .btn.btn-default(data-select=true) Выбрать
-                .col-sm-7
-                    #filesList
-                    input(value= value, name= key, type='hidden')
+

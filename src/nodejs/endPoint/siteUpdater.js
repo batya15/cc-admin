@@ -10,8 +10,8 @@ var SiteUpdaterEndPoint = function() {
 
 SiteUpdaterEndPoint.prototype = new EndPoint();
 
-SiteUpdaterEndPoint.prototype.emit = function(ns) {
-    this.socket.emit('update', {service: ns});
+SiteUpdaterEndPoint.prototype.emit = function(ns, data) {
+    this.socket.emit('update', {service: ns, data: data});
 };
 
 module.exports = new SiteUpdaterEndPoint();
