@@ -19,6 +19,6 @@
     "attempt": 10
   },
   "sidTime": 172800000,
-  "staticPath": "/usr/static/static",
+  "staticPath": "/usr/static/static/",
   "staticUrl": "/static/"
 }
