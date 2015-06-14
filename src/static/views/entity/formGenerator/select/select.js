@@ -1,14 +1,13 @@
 "use strict";
 
-define(['backbone', './textarea.jade'], function (Backbone, templete) {
+define(['backbone', './select.jade'], function (Backbone, templete) {
 
-    var NAME = 'form_textarea';
+    var NAME = 'form_select';
 
-    var View =  Backbone.View.extend({
+    var View = Backbone.View.extend({
         name: NAME,
         events: {
-            'keyup textarea': 'changeValue',
-            'change textarea': 'changeValue'
+            'change select': 'changeValue'
         },
         initialize: function (data) {
             this.setElement(templete(data));
@@ -16,7 +15,7 @@ define(['backbone', './textarea.jade'], function (Backbone, templete) {
             this.changeValue();
         },
         changeValue: function () {
-            this.value = this.$('textarea').val();
+            this.value = this.$('select').val();
             this.ready = true;
             this.trigger('change');
         }

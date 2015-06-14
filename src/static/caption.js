@@ -18,7 +18,13 @@ define(function () {
         'openingTimes': 'Время работы',
         'keywords': 'Ключевые слова',
         'source': 'Исходный',
-        'destination': 'Куда'
+        'destination': 'Куда',
+        'sex': 'Пол',
+        'img': 'Картинка',
+        'time': 'Время',
+        'text': 'Текст',
+        'contact': 'Контакт',
+        'approved': 'Проверенно'
 
     };
 

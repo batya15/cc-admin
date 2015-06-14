@@ -50,7 +50,7 @@ FileService.prototype = {
     },
     getFilenameById: function(id, cb) {
         dao.getFileNameById(id, function(err, filename) {
-            var name = staticUrl + filename;
+            var name = (filename)? staticUrl + filename : null;
             cb(err, name);
         });
     },

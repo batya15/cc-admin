@@ -1,6 +1,7 @@
 "use strict";
 
-define(['backbone', 'caption', './input/input', './textarea/textarea', './checkbox/checkbox', './file/file'],
+define(['backbone', 'caption', './input/input', './textarea/textarea', './checkbox/checkbox', './file/file',
+        './dateTime/dateTime', './select/select'],
     function (Backbone, caption, Input) {
 
         var modules = arguments;

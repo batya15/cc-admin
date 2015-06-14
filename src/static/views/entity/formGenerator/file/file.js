@@ -56,9 +56,11 @@ define([
             this.ready = true;
             this.trigger('change');
             service.getFilenameById(this.value, function (name) {
-                var img = new Image();
-                img.src = name;
-                this.$('#file').append(img);
+                if (name) {
+                    var img = new Image();
+                    img.src = name;
+                    this.$('#file').append(img);
+                }
             }.bind(this));
         },
         remove: function () {

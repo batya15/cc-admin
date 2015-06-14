@@ -12,11 +12,20 @@ var ReviewsService = function () {
         'text': {
             type: 'textarea'
         },
-        'time': '',
+        'time': {
+            "type": "datetime"
+        },
         'approved': {
             type: 'checkbox'
         },
-        'sex': '',
+        'sex': {
+            type: 'select',
+            options: {
+                0: 'Неопределен',
+                1: 'Мужской',
+                2: 'Женский'
+            }
+        },
         'img': {
             type: 'file'
         }

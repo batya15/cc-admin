@@ -4,7 +4,7 @@
     "build": "build/static",
     "release": "release/static",
     "temp": "temp",
-    "jsHint": ["src/static/**/*.js", "!**/bower_components/**", "!**/vendor/**", "!**/qunit.js"],
+    "jsHint": ["src/static/**/*.js", "!**/bower_components/**", "!**/vendor/**", "!**/qunit.js", "!**/socket.io-stream.js"],
     "bower_components": "src/static/bower_components",
     "vendor_js": "src/static/vendor",
     "scssFiles": ["src/static/**/*.{scss,sass}", "!**/bower_components/**"],
