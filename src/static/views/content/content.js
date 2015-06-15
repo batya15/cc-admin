@@ -13,6 +13,7 @@ define([
     'views/pages/siteMenus',
     'views/pages/directoryBrands',
     'views/pages/directoryCountry',
+    'views/pages/itemsType',
     'views/pages/products',
     'views/pages/content',
     'views/pages/orders',

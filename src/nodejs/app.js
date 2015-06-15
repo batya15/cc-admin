@@ -14,6 +14,7 @@ require('endPoint/exchangeRates');
 require('endPoint/dirBrands');
 require('endPoint/dirCountry');
 require('endPoint/filesService');
+require('endPoint/itemsType');
 var filesService = require('services/filesService');
 
 filesService.init();
