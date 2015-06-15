@@ -11,6 +11,8 @@ require('endPoint/siteReviews');
 require('endPoint/siteUpdater');
 require('endPoint/siteRedirect');
 require('endPoint/exchangeRates');
+require('endPoint/dirBrands');
+require('endPoint/dirCountry');
 require('endPoint/filesService');
 var filesService = require('services/filesService');
 
