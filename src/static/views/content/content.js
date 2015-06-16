@@ -14,7 +14,7 @@ define([
     'views/pages/directoryBrands',
     'views/pages/directoryCountry',
     'views/pages/itemsType',
-    'views/pages/products',
+    'views/pages/items',
     'views/pages/content',
     'views/pages/orders',
     'views/pages/comment'

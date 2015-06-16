@@ -15,6 +15,7 @@ require('endPoint/dirBrands');
 require('endPoint/dirCountry');
 require('endPoint/filesService');
 require('endPoint/itemsType');
+require('endPoint/items');
 var filesService = require('services/filesService');
 
 filesService.init();

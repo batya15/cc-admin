@@ -1,10 +1,10 @@
 "use strict";
 
 var EndPoint = require('entity/endPoint'),
-    Api = require('./api/itemsType');
+    Api = require('./api/items');
 
 var CountryEndPoint = function() {
-    this.namespace = 'itemsType';
+    this.namespace = 'items';
     EndPoint.prototype.initialize.apply(this, arguments);
 };
 
