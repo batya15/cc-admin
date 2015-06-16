@@ -19,7 +19,9 @@ var Service = function () {
         'price_euro': '',
         'price_delta': '',
         'price_old': '',
-        'img': '',
+        'img': {
+            'type': 'file'
+        },
         'date_manufacture': ''
     };
 };
