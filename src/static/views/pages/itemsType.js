@@ -2,7 +2,7 @@
 
 define(['domain/pages', 'views/entity/page', 'domain/net/itemsType'], function (page, ViewPage, model) {
 
-    var namespace = 'itemsType';
+    var namespace = 'typeItem';
 
     var fields =  {
         'Кодовое имя:5:b': 'type',
