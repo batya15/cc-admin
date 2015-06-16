@@ -25,6 +25,9 @@ DaoTable.prototype = {
             cb(err, res);
         });
     },
+    _selectAll: function(cb) {
+        db.select(this.table, '*', {}, cb);
+    },
     delete: function (param, cb) {
         db.delete(this.table, param, function(err, affectedRows) {
             cb(err, {delete:affectedRows});

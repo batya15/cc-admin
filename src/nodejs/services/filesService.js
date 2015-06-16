@@ -63,7 +63,7 @@ FileService.prototype = {
                     }
                 });
             }
-        })
+        });
     },
     init: function(cb) {
         dao.getAllFiles(function (err, row) {
